@@ -36,7 +36,7 @@ app.get('/', function(req, res){
 		'<b>localhost:3000/api/films</b>',
 		'returns the list of films available',
 		'<br />',
-		'<b>localhost:3000/api/film/%id%</b>',
+		'<b>localhost:3000/api/films/%id%</b>',
 		'where %id% is id of the film from the list',
 		'<br />',
 		'<b>localhost:3000/api/filmdetails?name=%filmname%</b>',
