@@ -19,3 +19,9 @@
 .film-container{
 	clear: both;
 }
+.film-container:after {
+    content: '';
+    display: table;
+    clear: both;
+    float: none;
+}
