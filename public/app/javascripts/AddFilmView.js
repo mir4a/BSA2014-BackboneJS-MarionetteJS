@@ -24,7 +24,11 @@ var AddFilmView = Backbone.View.extend({
         poster = $('#film-poster').val();
 
     if (title.length > 0 && year.length > 0) {
+      var collection = this.collection,
+          collection_length = collection.length;
       console.log(this);
+      collection.add({name: title, year: "(" + year + ")", id: 1+collection_length});
+
       this.render();
     } else {
       this.$el.append('<small>Title and year should be filled</small>');

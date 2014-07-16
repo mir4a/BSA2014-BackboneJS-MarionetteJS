@@ -10,4 +10,5 @@ var FilmView = Backbone.View.extend({
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	}
+
 });
