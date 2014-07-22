@@ -24,21 +24,19 @@ var AddFilmView = Backbone.View.extend({
         poster = $('#film-poster').val(),
         collection = this.collection,
         collection_length = collection.length,
-        current_model = {name: title, year: "(" + year + ")", id: 1+collection_length};
+        data = {};
 
     if (title.length > 0 && year.length > 0) {
       console.log(this);
-      collection.add(current_model);
-      this.render();
+//      this.newFilm(data);
+      var m = new Film({'name': title, 'poster': poster, 'year': "(" + year + ")"});
+//      m.save();
+      this.collection.create(m);
+//      this.collection.sync('create', m);
+//      this.render();
     } else {
       this.$el.append('<small>Title and year should be filled</small>');
     }
-
-    collection.on('add', function(){
-      console.log(this);
-      console.log('update this.sync');
-      this.sync('update', current_model);
-    });
 
   }
 

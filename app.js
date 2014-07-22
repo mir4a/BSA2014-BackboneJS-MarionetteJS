@@ -1,8 +1,10 @@
 var express = require('express'),
 	app = express(),
+  bodyParser = require('body-parser'),
 	filmService = require('./filmService');
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
 
 app.get('/api/films', function (req, res) {
 	res.send(filmService.getFilmList());
@@ -23,7 +25,12 @@ app.delete('/api/films/:id', function (req, res) {
 });
 
 app.put('/api/films/:id', function (req, res) {
-	var film = filmService.addFilm(req.params.id);
+	var film = filmService.addFilm(req);
+	res.end();
+});
+
+app.post('/api/films', function (req, res) {
+	var film = filmService.addFilm(req.body);
 	res.end();
 });
 

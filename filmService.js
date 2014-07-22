@@ -23,11 +23,14 @@ var FilmService = function(){
 
 	this.deleteFilm = function(id){
 		this.FilmList = _.reject(this.FilmList, function(item){return item.id === Number(id);});
-	}
+	};
 
 	this.addFilm = function(item){
-		this.FilmList.push(JSON.parse(item));
-	}
+    var film = item;
+    var filmList_length = this.FilmList.length;
+    item['id'] = filmList_length + 1;
+		this.FilmList.push(film);
+	};
 
 	this.FilmList = [
 		{
