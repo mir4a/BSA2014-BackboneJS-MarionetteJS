@@ -9,7 +9,6 @@ var AddFilmView = Backbone.View.extend({
   template: _.template($('#add-new-film').html()),
 
   initialize: function () {
-    console.log(this);
     this.render();
   },
 
@@ -23,17 +22,12 @@ var AddFilmView = Backbone.View.extend({
         year = $('#film-year').val(),
         poster = $('#film-poster').val(),
         collection = this.collection,
-        collection_length = collection.length,
-        data = {};
+        collection_length = collection.length;
 
     if (title.length > 0 && year.length > 0) {
       console.log(this);
-//      this.newFilm(data);
-      var m = new Film({'name': title, 'poster': poster, 'year': "(" + year + ")"});
-//      m.save();
+      var m = new Film({'name': title, 'poster': poster, 'year': "(" + year + ")", '_id': collection_length + 1}); // TODO: Fix missing id feature
       this.collection.create(m);
-//      this.collection.sync('create', m);
-//      this.render();
     } else {
       this.$el.append('<small>Title and year should be filled</small>');
     }

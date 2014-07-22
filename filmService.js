@@ -28,7 +28,7 @@ var FilmService = function(){
 	this.addFilm = function(item){
     var film = item;
     var filmList_length = this.FilmList.length;
-    item['id'] = filmList_length + 1;
+    item['id'] = item._id;
 		this.FilmList.push(film);
 	};
 
