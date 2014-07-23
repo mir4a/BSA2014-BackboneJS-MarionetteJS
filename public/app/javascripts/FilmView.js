@@ -12,12 +12,11 @@ var FilmView = Backbone.View.extend({
 	},
 
 	render: function(){
-    console.log("this.model.get('id') = " + this.model.get('id'));
-    var _id = this.model.get('id') || this.model.get('_id'),
+    var id = this.model.get('id'),
         name = this.model.get('name'),
         poster = this.model.get('poster'),
         year = this.model.get('year');
-		this.$el.html(this.template({'name': name, id: _id, 'poster': poster, 'year': year}) + '<button data-remove="nooooo">delete</button>');
+		this.$el.html(this.template({'name': name, id: id, 'poster': poster, 'year': year}) + '<button data-remove="'+id+'">delete</button>');
 		return this;
 	},
 
