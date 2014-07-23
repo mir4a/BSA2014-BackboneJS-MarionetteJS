@@ -25,7 +25,6 @@ var AddFilmView = Backbone.View.extend({
         collection_length = collection.length;
 
     if (title.length > 0 && year.length > 0) {
-      console.log(this);
       var m = new Film({'name': title, 'poster': poster, 'year': "(" + year + ")", '_id': collection_length + 1}); // TODO: Fix missing id feature
       this.collection.create(m);
     } else {

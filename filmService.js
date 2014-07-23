@@ -32,6 +32,10 @@ var FilmService = function(){
 		this.FilmList.push(film);
 	};
 
+	this.changeFilm = function(item){
+    this.FilmList[parseFloat(item.id) - 1] = _.extend(this.FilmList[parseFloat(item.id) - 1], item);
+	};
+
 	this.FilmList = [
 		{
 			poster:"http://images.moviepostershop.com/the-wizard-of-oz-movie-poster-1998-1010261967.jpg",
