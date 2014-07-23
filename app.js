@@ -20,17 +20,26 @@ app.get('/api/films/:id', function (req, res) {
 });
 
 app.delete('/api/films/:id', function (req, res) {
-	var film = filmService.deleteFilm(req.params.id);
+	var film = filmService.getFilmList(req.params.id);
+	filmService.deleteFilm(req.params.id);
+  res.status(200);
+  res.send(JSON.stringify(film));
 	res.end();
 });
 
 app.put('/api/films/:id', function (req, res) {
-	var film = filmService.changeFilm(req.body);
+  var film = filmService.getFilmList(req.params.id);
+  filmService.changeFilm(req.body);
+  res.status(200);
+  res.send(JSON.stringify(film));
 	res.end();
 });
 
 app.post('/api/films', function (req, res) {
-	var film = filmService.addFilm(req.body);
+  var film = filmService.getFilmList(req.params.id);
+  filmService.addFilm(req.body);
+  res.status(200);
+  res.send(JSON.stringify(film));
 	res.end();
 });
 

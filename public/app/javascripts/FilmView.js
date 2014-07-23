@@ -3,7 +3,8 @@ var FilmView = Backbone.View.extend({
 	template: _.template($('#film-template').html()),
   events: {
     'click [data-change]':'changeName',
-    'blur [data-change]': 'finishChangeName'
+    'blur [data-change]': 'finishChangeName',
+    'click [data-remove]': 'deleteFilm'
   },
 
 	initialize: function(){
@@ -11,12 +12,12 @@ var FilmView = Backbone.View.extend({
 	},
 
 	render: function(){
-    console.log(this);
-    var _id = this.model.get('_id') || this.model.get('id'),
+    console.log("this.model.get('id') = " + this.model.get('id'));
+    var _id = this.model.get('id') || this.model.get('_id'),
         name = this.model.get('name'),
         poster = this.model.get('poster'),
         year = this.model.get('year');
-		this.$el.html(this.template({'name': name, id: _id, 'poster': poster, 'year': year}) + '<button id="film_' + _id + '" data-remove="'+ _id +'">delete</button>');
+		this.$el.html(this.template({'name': name, id: _id, 'poster': poster, 'year': year}) + '<button data-remove="nooooo">delete</button>');
 		return this;
 	},
 
@@ -34,11 +35,18 @@ var FilmView = Backbone.View.extend({
         id = $el.data('change'),
         model = this.model;
     model.save({name: name});
-    this.render();
-//    this.model.collection.set({this.model}, {remove: false});
+  },
+
+  deleteFilm: function () {
     console.log(this);
-    console.log(model);
-//    console.log(this.syncArgs.method);
+    this.$el.remove();
+    this.model.destroy({success: function(model, response) {
+      console.info('removed well');
+      console.info(response);
+    }, error: function(model, response) {
+      console.log('something went wrong');
+      console.log(response.status);
+    }});
   }
 
 });

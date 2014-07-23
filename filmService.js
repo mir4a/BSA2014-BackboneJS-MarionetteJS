@@ -27,13 +27,17 @@ var FilmService = function(){
 
 	this.addFilm = function(item){
     var film = item;
-    var filmList_length = this.FilmList.length;
-    item['id'] = item._id;
+    var ids = _.pluck(this.FilmList, 'id');
+    console.log(ids);
+    item['id'] = _.max(ids) + 1;
+    console.log(_.max(ids) + 1);
+    console.log(item);
 		this.FilmList.push(film);
 	};
 
 	this.changeFilm = function(item){
-    this.FilmList[parseFloat(item.id) - 1] = _.extend(this.FilmList[parseFloat(item.id) - 1], item);
+    var currentModel = _.findWhere(this.FilmList, {id: item.id});
+    _.extend(currentModel, item);
 	};
 
 	this.FilmList = [

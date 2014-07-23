@@ -6,10 +6,16 @@ var FilmCollectionView = Backbone.View.extend({
 	},
 
 	renderNewFilm: function(model){
+    console.log('this');
+    console.log(this);
 		var view = new FilmView({
 			model: model
 		});
+    console.log('view');
+    console.log(view);
+
 		this.$el.append(view.$el);
+    return this;
 	}
 
 });
