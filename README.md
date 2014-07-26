@@ -16,6 +16,7 @@ cd BSA2014-BackboneJS-underscoreJS/
 - Install all the dependencies
 ```shell
 npm install
+bower install
 ```
 - Run the server
 ```shell
