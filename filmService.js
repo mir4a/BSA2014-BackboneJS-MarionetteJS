@@ -22,12 +22,20 @@ var FilmService = function(){
 	};
 
 	this.deleteFilm = function(id){
-		this.FilmList = _.reject(this.FilmList, function(item){return itme.id === Number(id);});
-	}
+		this.FilmList = _.reject(this.FilmList, function(item){return item.id === Number(id);});
+	};
 
 	this.addFilm = function(item){
-		this.FilmList.push(JSON.parse(item));
-	}
+    var film = item;
+    var ids = _.pluck(this.FilmList, 'id');
+    item['id'] = _.max(ids) + 1;
+		this.FilmList.push(film);
+	};
+
+	this.changeFilm = function(item){
+    var currentModel = _.findWhere(this.FilmList, {id: item.id});
+    _.extend(currentModel, item);
+	};
 
 	this.FilmList = [
 		{

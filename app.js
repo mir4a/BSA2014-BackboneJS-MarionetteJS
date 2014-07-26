@@ -1,14 +1,16 @@
 var express = require('express'),
 	app = express(),
+  bodyParser = require('body-parser'),
 	filmService = require('./filmService');
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
 
 app.get('/api/films', function (req, res) {
 	res.send(filmService.getFilmList());
 });
 
-app.get('/api/film/:id', function (req, res) {
+app.get('/api/films/:id', function (req, res) {
 	var film = filmService.getFilmList(req.params.id);
 	if (film){
 		res.send(film);
@@ -17,13 +19,27 @@ app.get('/api/film/:id', function (req, res) {
 	}
 });
 
-app.delete('/api/film/:id', function (req, res) {
-	var film = filmService.deleteFilm(req.params.id);
+app.delete('/api/films/:id', function (req, res) {
+	var film = filmService.getFilmList(req.params.id);
+	filmService.deleteFilm(req.params.id);
+  res.status(200);
+  res.send(JSON.stringify(film));
 	res.end();
 });
 
-app.put('/api/film/:id', function (req, res) {
-	var film = filmService.addFilm(req.params.id);
+app.put('/api/films/:id', function (req, res) {
+  var film = filmService.getFilmList(req.params.id);
+  filmService.changeFilm(req.body);
+  res.status(200);
+  res.send(JSON.stringify(film));
+	res.end();
+});
+
+app.post('/api/films', function (req, res) {
+  var film = filmService.getFilmList(req.params.id);
+  filmService.addFilm(req.body);
+  res.status(200);
+  res.send(JSON.stringify(film));
 	res.end();
 });
 
@@ -36,7 +52,7 @@ app.get('/', function(req, res){
 		'<b>localhost:3000/api/films</b>',
 		'returns the list of films available',
 		'<br />',
-		'<b>localhost:3000/api/film/%id%</b>',
+		'<b>localhost:3000/api/films/%id%</b>',
 		'where %id% is id of the film from the list',
 		'<br />',
 		'<b>localhost:3000/api/filmdetails?name=%filmname%</b>',

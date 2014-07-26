@@ -1,9 +1,9 @@
 var FilmCollection = Backbone.Collection.extend({
-	url: '/api/films',
-	model: Film,
-	initialize: function(){
-		this.fetch();
-	}
+  url       : '/api/films',
+  model     : Film,
+  initialize: function () {
+    this.fetch();
+  }
 
 });
 
