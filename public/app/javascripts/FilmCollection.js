@@ -1,4 +1,4 @@
-var FilmCollection = Backbone.Collection.extend({
+window.FilmCollection = Backbone.Collection.extend({
   url       : '/api/films',
   model     : Film,
   initialize: function () {
