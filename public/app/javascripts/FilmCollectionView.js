@@ -1,4 +1,4 @@
-var FilmCollectionView = Backbone.View.extend({
+FilmCollectionView = Backbone.Marionette.ItemView.extend({
 	el: '#films-container',
 
 	initialize: function(){
@@ -16,6 +16,6 @@ var FilmCollectionView = Backbone.View.extend({
 
 });
 
-var filmsView = new FilmCollectionView({
+new FilmCollectionView({
 	collection: films
-});
+}).render();
