@@ -28,10 +28,7 @@ var FilmService = function(){
 	this.addFilm = function(item){
     var film = item;
     var ids = _.pluck(this.FilmList, 'id');
-    console.log(ids);
     item['id'] = _.max(ids) + 1;
-    console.log(_.max(ids) + 1);
-    console.log(item);
 		this.FilmList.push(film);
 	};
 
