@@ -8,8 +8,9 @@
   "description": "Academy homework for MarionetteJS",
   "license": "MIT",
   "private": true,
-  "dependencies" : {
-     "marionette" : ""
+  "dependencies": {
+    "backbone.localstorage": "~1.1.9",
+    "backbone.marionette": "~2.0.3"
   },
   "ignore": [
     "**/.*",
