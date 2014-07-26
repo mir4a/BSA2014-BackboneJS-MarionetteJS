@@ -1,4 +1,4 @@
-BSA2014-BackboneJS-underscoreJS
+BSA2014-BackboneJS-MarionetteJS
 ===============================
 
 ##Hometask boilerplate for JS group after Backbone lecture.
@@ -27,12 +27,5 @@ localhost:3000
 ```
 
 ###What should be done?
-- Add possibility to add films.
-- Add possibility to rename films.
-- Add possibility to remove films.
-
-You should add a button for a remove action. 
-
-Rename can be done within on the same place, where no sits plain text with the name or in a separate place.  
-
-Add implies inputs for name and year, id may be generated automatically.
+Реализовать предыдущее домашнее задание с использованием дополнительно библиотеки marionette.js, используя следующие компоненты: ItemView, CollectionView, CompositeView. 
+Добавить ItemView, которая будет отображать детали фильма по нажатию. Переключение между ею и списком фильмов должно регулироваться через Region.
