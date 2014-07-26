@@ -1,0 +1,21 @@
+{
+  "name": "BSA2014-BackboneJS-MarionetteJS",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mir4a/BSA2014-BackboneJS-MarionetteJS",
+  "authors": [
+    "Miroslav Martynov <marty.mircha@gmail.com>"
+  ],
+  "description": "Academy homework for MarionetteJS",
+  "license": "MIT",
+  "private": true,
+  "dependencies" : {
+     "marionette" : ""
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
