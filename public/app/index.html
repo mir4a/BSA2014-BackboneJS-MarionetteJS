@@ -15,16 +15,12 @@
 
     <script type="text/template" id="app-template">
 	    <div id="films-container"></div>
-        <div id="forms-container"></div>
-    </script>
-
-    <script type="text/template" id="add-new-film">
         <hr/>
         <input type="text" placeholder="Film title" id="film-title"/>
         <input type="url" placeholder="Poster url" id="film-poster"/>
         <input type="text" placeholder="Year" id="film-year"/>
         <button id="add-new">Add new</button>
-	</script>
+    </script>
 
     <script type="text/template" id="film-details-template">
         <h1><%= name %> <time><%= year %></time></h1>
@@ -57,7 +53,6 @@
 	<script src="./javascripts/FilmCollection.js"></script>
 	<script src="./javascripts/FilmCompositeView.js"></script>
 	<script src="./javascripts/FilmDetailsView.js"></script>
-	<script src="./javascripts/AddFilmView.js"></script>
 	<script src="./javascripts/AppLayout.js"></script>
 </body>
 </html>
