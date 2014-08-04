@@ -1,24 +1,23 @@
-var FilmView = Backbone.View.extend({
+var FilmView = Backbone.Marionette.ItemView.extend({
 	className: 'film-container',
-	template: _.template($('#film-template').html()),
+	template: '#film-template',
+  ui: {
+    name: '[data-change]',
+    del_btn: '[data-remove]'
+  },
   events: {
-    'click [data-change]':'changeName',
-    'blur [data-change]': 'finishChangeName',
-    'click [data-remove]': 'deleteFilm'
+    'click @ui.name':'changeName',
+    'blur @ui.name': 'finishChangeName',
+    'click @ui.del_btn': 'deleteFilm'
   },
 
 	initialize: function(){
 		this.render();
 	},
 
-	render: function(){
-    var id = this.model.get('id'),
-        name = this.model.get('name'),
-        poster = this.model.get('poster'),
-        year = this.model.get('year');
-		this.$el.html(this.template({'name': name, id: id, 'poster': poster, 'year': year}) + '<button data-remove="'+id+'">delete</button>');
-		return this;
-	},
+  onRender: function() {
+    this.$el.append('<button data-remove="'+this.model.get('id')+'">delete</button>');
+  },
 
   changeName: function (e) {
     console.log(e);

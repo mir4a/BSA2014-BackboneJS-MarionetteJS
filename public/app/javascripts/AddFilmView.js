@@ -1,22 +1,18 @@
-var AddFilmView = Backbone.View.extend({
+var AddFilmView = Backbone.Marionette.ItemView.extend({
   className: 'add-film-form',
   el       : '#forms-container',
   url: '/api/films',
+  collection: films,
+
+  ui: {
+    add_new: '#add-new'
+  },
 
   events: {
-    'click #add-new': 'addNewFilm'
+    'click @ui.add_new': 'addNewFilm'
   },
 
-  template: _.template($('#add-new-film').html()),
-
-  initialize: function () {
-    this.render();
-  },
-
-  render: function () {
-    this.$el.html(this.template());
-    return this;
-  },
+  template: '#add-new-film',
 
   addNewFilm: function () {
     var title = $('#film-title').val(),
@@ -37,6 +33,5 @@ var AddFilmView = Backbone.View.extend({
 
 });
 
-var addFilmsView = new AddFilmView({
-  collection: films
-});
+var addNew = new AddFilmView;
+addNew.render();
