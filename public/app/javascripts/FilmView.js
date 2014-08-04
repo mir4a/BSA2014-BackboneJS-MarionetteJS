@@ -39,14 +39,18 @@ var FilmView = Backbone.Marionette.ItemView.extend({
 
   deleteFilm: function () {
     console.log(this);
-    this.$el.remove();
-    this.model.destroy({success: function(model, response) {
-      console.info('removed well');
-      console.info(response);
-    }, error: function(model, response) {
-      console.log('something went wrong');
-      console.log(response.status);
-    }});
+    if (confirm('Are you sure you want to delete "' + this.ui.name.text() + '" film?')) {
+      this.$el.remove();
+      this.model.destroy({success: function(model, response) {
+        console.info('removed well');
+        console.info(response);
+      }, error: function(model, response) {
+        console.log('something went wrong');
+        console.log(response.status);
+      }});
+    } else {
+      return false;
+    }
   },
 
   showDetails: function () {
