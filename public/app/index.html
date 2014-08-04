@@ -21,6 +21,28 @@
         <input type="text" placeholder="Year" id="film-year"/>
         <button id="add-new">Add new</button>
 	</script>
+
+    <script type="text/template" id="film-details-template">
+        <h1><%= name %> <time><%= year %></time></h1>
+        <figure>
+            <img src="<%= poster %>" alt="<%= name %>"/>
+            <figcaption><%= name %>, <%= year %></figcaption>
+        </figure>
+
+        <ul>
+            <li><%= details0 %></li>
+            <li><%= details1 %></li>
+            <li><%= details2 %></li>
+            <li><%= details3 %></li>
+            <li><%= details4 %></li>
+            <li><%= details5 %></li>
+            <li><%= details6 %></li>
+            <li><%= details7 %></li>
+            <li><%= details8 %></li>
+        </ul>
+
+        <button id="go-back">Back</button>
+	</script>
 	<script src="./components/jquery/dist/jquery.js"></script>
 	<script src="./components/underscore/underscore.js"></script>
 	<script src="./components/backbone/backbone.js"></script>
@@ -30,6 +52,7 @@
 	<script src="./javascripts/FilmView.js"></script>
 	<script src="./javascripts/FilmCollection.js"></script>
 	<script src="./javascripts/FilmCollectionView.js"></script>
+	<script src="./javascripts/FilmDetailsView.js"></script>
 	<script src="./javascripts/AddFilmView.js"></script>
 </body>
 </html>

@@ -3,12 +3,14 @@ var FilmView = Backbone.Marionette.ItemView.extend({
 	template: '#film-template',
   ui: {
     name: '[data-change]',
-    del_btn: '[data-remove]'
+    del_btn: '[data-remove]',
+    details_btn: '[data-details]'
   },
   events: {
     'click @ui.name':'changeName',
     'blur @ui.name': 'finishChangeName',
-    'click @ui.del_btn': 'deleteFilm'
+    'click @ui.del_btn': 'deleteFilm',
+    'click @ui.details_btn': 'showDetails'
   },
 
 	initialize: function(){
@@ -16,7 +18,7 @@ var FilmView = Backbone.Marionette.ItemView.extend({
 	},
 
   onRender: function() {
-    this.$el.append('<button data-remove="'+this.model.get('id')+'">delete</button>');
+    this.$el.append('<button data-remove="'+this.model.get('id')+'">delete</button> <button data-details="'+this.model.get('id')+'">details</button>');
   },
 
   changeName: function (e) {
@@ -45,6 +47,11 @@ var FilmView = Backbone.Marionette.ItemView.extend({
       console.log('something went wrong');
       console.log(response.status);
     }});
+  },
+
+  showDetails: function () {
+    console.log(this);
+    FilmsApp.mainRegion.show(new FilmDetailsView({model: this.model}));
   }
 
 });

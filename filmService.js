@@ -12,11 +12,39 @@ var FilmService = function(){
 		if (id){
 			var item = _.findWhere(this.FilmList, {id: Number(id)});
 			if (item) {
-				return {name:item.name, year: item.year, id: item.id};
+        return {
+          name: item.name,
+          year: item.year,
+          id: item.id,
+          poster: item.poster,
+          details0: item.details0,
+          details1: item.details1,
+          details2: item.details2,
+          details3: item.details3,
+          details4: item.details4,
+          details5: item.details5,
+          details6: item.details6,
+          details7: item.details7,
+          details8: item.details8
+        };
 			}
 		} else {
 			return _.map(this.FilmList, function(item){
-				return {name:item.name, year: item.year, id: item.id}
+				return {
+          name: item.name,
+          year: item.year,
+          id: item.id,
+          poster: item.poster,
+          details0: item.details0,
+          details1: item.details1,
+          details2: item.details2,
+          details3: item.details3,
+          details4: item.details4,
+          details5: item.details5,
+          details6: item.details6,
+          details7: item.details7,
+          details8: item.details8
+        }
 			});
 		}
 	};
