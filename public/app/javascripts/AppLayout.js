@@ -1,13 +1,13 @@
 var AppLayout = Backbone.Marionette.LayoutView.extend({
-	template: '#app-template',
+	template: '#app-layout-template',
 
   regions: {
-    mainRegion: '#films-container'
+    mainRegion: '#app'
   }
 });
 
 appContainer = new Backbone.Marionette.Region({
-  el: '#app'
+  el: '#container'
 });
 var layoutView = new AppLayout();
 appContainer.show(layoutView);
