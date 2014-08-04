@@ -1,5 +1,4 @@
-FIlmsRouter = Backbone.Marionette.AppRouter.extend({
-  controller: Film,
+FilmsRouter = Backbone.Marionette.AppRouter.extend({
   appRoutes: {
     "/api/films": "getFilms",
     "/api/films/:id": "getCurrentFilm"

@@ -1,6 +1,5 @@
 var AddFilmView = Backbone.Marionette.ItemView.extend({
   className: 'add-film-form',
-  el       : '#forms-container',
   url: '/api/films',
   collection: films,
 
@@ -34,4 +33,4 @@ var AddFilmView = Backbone.Marionette.ItemView.extend({
 });
 
 var addNew = new AddFilmView;
-addNew.render();
+FilmsApp.addFormRegion.show(addNew);
