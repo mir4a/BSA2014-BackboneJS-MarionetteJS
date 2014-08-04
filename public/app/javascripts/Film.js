@@ -18,3 +18,5 @@ var Film = Backbone.Model.extend({
     details8: undefined
 	}
 });
+
+var filmModel = new Film();

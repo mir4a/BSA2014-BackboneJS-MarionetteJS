@@ -33,4 +33,3 @@ var AddFilmView = Backbone.Marionette.ItemView.extend({
 });
 
 var addNew = new AddFilmView;
-FilmsApp.addFormRegion.show(addNew);

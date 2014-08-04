@@ -13,10 +13,6 @@ var FilmView = Backbone.Marionette.ItemView.extend({
     'click @ui.details_btn': 'showDetails'
   },
 
-	initialize: function(){
-		this.render();
-	},
-
   onRender: function() {
     this.$el.append('<button data-remove="'+this.model.get('id')+'">delete</button> <button data-details="'+this.model.get('id')+'">details</button>');
   },
@@ -55,7 +51,7 @@ var FilmView = Backbone.Marionette.ItemView.extend({
 
   showDetails: function () {
     console.log(this);
-    FilmsApp.mainRegion.show(new FilmDetailsView({model: this.model}));
+    layoutView.mainRegion.show(new FilmDetailsView({model: this.model}));
   }
 
 });

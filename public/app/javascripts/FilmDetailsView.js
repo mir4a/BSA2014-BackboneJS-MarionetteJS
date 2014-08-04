@@ -9,7 +9,10 @@ var FilmDetailsView = Backbone.Marionette.ItemView.extend({
   },
 
   goBack: function(){
-    FilmsApp.mainRegion.show(new FilmCollectionView());
+    layoutView.mainRegion.show(new FilmCompositeView({
+      model: filmModel,
+      collection: films
+    }));
   }
 
 });
